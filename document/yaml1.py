@@ -1,5 +1,5 @@
 # -*- coding:utf-8 -*-
-
+# required python 3.5 이상
 # pip install pyyaml
 
 import os
