@@ -10,8 +10,7 @@ except ImportError:
 
 
 BASE_DIR = os.path.dirname(os.path.realpath(__file__))
-
-PATH = os.path.join(BASE_DIR, "exmple.json")
+PATH = os.path.join(BASE_DIR, "example.json")
 
 string = {
     "int": 1,
@@ -29,7 +28,6 @@ string = {
 
 with open(PATH, 'w') as fw:
     json.dump(string, fw, indent=4, separators=(',', ': '))
-
 
 with open(PATH) as fr:
     j = json.load(fr)
