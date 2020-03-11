@@ -7,8 +7,11 @@ import time
 
 images_base_url="https://registry.my-netdata.io/images/banner-icon-144x144.png"
 images_base_url2="https://registry.my-netdata.io/images/alert-128-red.png"
+color="#ca414b"
 images_base_url3="https://registry.my-netdata.io/images/alert-128-orange.png"
+color="#ffc107"
 images_base_url4="https://registry.my-netdata.io/images/acheck-mark-2-128-green.png"
+color="#77ca6d"
 
 
 client = slack.WebClient(token=SLACK_TOCKEN)
