@@ -93,6 +93,13 @@ class Slacker:
 
             self.ts         = time.time()
 
+
+        def __getattr__(self, key):
+            try:
+                return self.__dict__[key]
+            except KeyError as e:
+                return None
+
         def setFallback(self, fallback):
             self.fallback = fallback
             return self
