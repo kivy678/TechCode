@@ -32,6 +32,11 @@ with open(BIN_PATH, 'rb') as fr:
     print(byteArray.tobytes())
 # >>> b'\x01\x02\x03\x04\x05\x06\x07\x08\t\xaa'
 
+with open(BIN_PATH, 'rb') as fr:
+    byteArray = ar.array('B')
+    byteArray.fromfile(fr, READ_SIZE)
+    print(byteArray.tolist())
+# >>> [1, 2, 3, 4, 5, 6, 7, 8, 9, 170]
 
 # 2. numpy
 arr1 = np.array([1, 2, 3, 4, 5])
