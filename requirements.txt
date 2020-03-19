@@ -1,4 +1,6 @@
 numpy==1.18.1
-requests>=2.20.0
+requests==2.23.0
 slackclient==2.5.0
 lockfile==0.12.2
+python-daemon==2.2.4
+

@@ -5,19 +5,21 @@ __all__ = [
     'getFileLogger',
     'getLoggerFileNo',
     'attachLoggerObject',
+    'LOG',
 ]
 
 ################################################################################
+import os
 
 import logging
 import logging.handlers
 
-from modules.constraint import *
-
 ################################################################################
-
+LOGGER_ATTACH_METHODS = ('info', 'debug', 'error', 'warning', 'exception')
 LOGGER_FORMAT_STRING = '%(asctime)-15s|%(levelname)s|%(filename)s|%(lineno)d|%(module)s|%(funcName)s|%(message)s'
 LOGFMT = logging.Formatter(LOGGER_FORMAT_STRING)
+
+LOGGER_IDENT = 'logger.v1'
 
 LOG_MAXBYTES = 32 * 1024 * 1024
 LOG_BACKUPS = 3
@@ -66,3 +68,10 @@ def attachLoggerObject(obj, logger):
     for handle in LOGGER_ATTACH_METHODS:
         if hasattr(obj, handle) is False and hasattr(logger, handle) is True:
             setattr(obj, handle, getattr(logger, handle))
+
+
+BASE_DIR = os.path.dirname(os.path.realpath(__file__))
+LOG_DIR = os.path.join(BASE_DIR, 'LOG')
+LOGGER_PATH = os.path.join(LOG_DIR, 'report')
+
+LOG = getFileLogger(LOGGER_PATH, stream=True)
