@@ -1,0 +1,42 @@
+{% extends 'pattern/index.jinja' %}
+
+{% block container %}
+  <div>
+    <ul class="nav nav-tabs" role="tablist">
+      <li class="active" role="presentation"><a href="#view-table" aria-controls="view-table" role="tab" data-toggle="tab">테이블 출력</a></li>
+      <li role="presentation"><a href="#view-pre" aria-controls="view-pre" role="tab" data-toggle="tab">텍스트 출력</a></li>
+    </ul>
+    <div class="tab-content">
+      <div id="view-table" class="tab-pane active" role="tabpanel">
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th>idx</th>
+              <th>패턴버전</th>
+              <th>상태</th>
+              <th>파일해시</th>
+              <th>진단명</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for entry in entries %}
+              <tr>
+                <td>{{ loop.index }}</td>
+                <td>{{ entry.pattern }}</td>
+                <td>{{ PatternCommand(entry.cmd) }}</td>
+                <td>
+                  <p>MD5 : {{ entry.r_file.file_md5.encode('hex').upper() }}</p>
+                  <p>{% if not entry.r_file.file_sha1 is none %}SHA1 : {{ entry.r_file.file_sha1.encode('hex').upper() }}{% endif %}</p>
+                </td>
+                <td>{{ MergeReport(entry.r_file.r_report.r_rs.val, entry.extend) }}</td>
+              </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div> <!-- tab -->
+      <div id="view-pre" class="tab-pane" role="tabpanel">
+        <pre>{% for entry in entries %}{% if entry.cmd == 0 %}Android/{{ MergeReport(entry.r_file.r_report.r_rs.val, entry.extend) + "\n" }}{% endif %}{% endfor %}</pre>
+      </div>
+    </div>
+  </div>
+{% endblock container %}

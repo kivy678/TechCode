@@ -1,0 +1,8 @@
+{% extends 'admin/sidebar.jinja' %}
+
+{% block sidebar %}
+  <ul class="nav nav-sidebar">
+    <li><a href="{{ url_for('admin.file.list') }}">파일 목록</a></li>
+    <li><a href="{{ url_for('admin.file.search') }}">파일 검색</a></li>
+  </ul>
+{% endblock sidebar %}

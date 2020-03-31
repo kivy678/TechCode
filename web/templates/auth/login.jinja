@@ -1,0 +1,27 @@
+{% extends 'single.jinja' %}
+
+{% block container %}
+  <div>
+    <form class="form-horizontal" action="{{ url_for('auth.login') }}" method="POST" us-target="form">
+      
+      <div class="form-group">
+        <label class="control-label col-sm-3" for="user-id">사용자 아이디</label>
+        <div class="col-sm-5">
+          <input class="form-control" id="user-id" name="user_id" type="text" us-target="form-data"/>
+        </div>
+      </div>
+      
+      <div class="form-group">
+        <label class="control-label col-sm-3" for="user-password">사용자 비밀번호</label>
+        <div class="col-sm-5">
+          <input class="form-control" id="user-password" name="user_password" type="password" us-target="form-data" />
+        </div>
+      </div>
+
+      <div class="col-sm-offset-3">
+        <button class="btn btn-primary" type="submit">로그인</button>
+      </div>
+      
+    </form>
+  </div>
+{% endblock container %}

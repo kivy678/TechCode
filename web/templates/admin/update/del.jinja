@@ -1,0 +1,35 @@
+{% extends 'admin/update/index.jinja' %}
+
+{% block container %}
+
+  <div class="row">
+    <div class="col-sm-6">
+      <form class="form-horizontal" action="{{ url_for('admin.update.del', mode='md5') }}" method="POST" us-target="hash-form-check">
+        <div class="input-group">
+          <span class="input-group-addon" style="width: 80px;">MD5</span>
+          <input class="form-control" name="val" type="text" value="" maxlength="32" us-target="hash-check"/>
+          <span class="input-group-btn">
+            <button class="btn btn-default" type="submit">제거 패턴 추가</button>
+          </span>
+        </div>
+      </form>
+
+      <form class="form-horizontal" action="{{ url_for('admin.update.del', mode='sha1') }}" method="POST" us-target="hash-form-check" style="margin-top: 20px;">
+        <div class="input-group">
+          <span class="input-group-addon" style="width: 80px;">SHA1</span>
+          <input class="form-control" name="val" type="text" value="" maxlength="40" us-target="hash-check"/>
+          <span class="input-group-btn">
+            <button class="btn btn-default" type="submit">제거 패턴 추가</button>
+          </span>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="jumbotron" style="margin-top: 20px;">
+      <p>{{ message }}</p>
+    </div>
+  </div>
+  
+{% endblock container %}

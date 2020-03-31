@@ -5,7 +5,7 @@ import os
 import sys
 
 import runpy
-import urllib3
+import requests
 import imp
 
 imp.reload(sys)
@@ -23,4 +23,4 @@ else:
 file_globals = runpy.run_path(ENV_PATH)
 
 
-urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
+requests.packages.urllib3.disable_warnings(requests.packages.urllib3.exceptions.InsecureRequestWarning)

@@ -1,0 +1,8 @@
+{% extends 'sidebar.jinja' %}
+
+{% block sidebar %}
+  <ul class="nav nav-sidebar">
+    <li><a href="{{ url_for('pattern.report.product') }}">진단명 목록</a></li>
+    <li><a href="{{ url_for('pattern.version.product') }}">패턴 버전별 목록</a></li>
+  </ul>
+{% endblock sidebar %}

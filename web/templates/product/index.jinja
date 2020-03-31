@@ -1,0 +1,14 @@
+{% extends 'single.jinja' %}
+
+{% block container %}
+  <div class="list-group">
+    {% for entry in entries %}
+      <li class="list-group-item">
+        <a class="badge" href="{{ url_for('product.manifest', id=entry.id) }}">명세 목록</a>
+        <a class="badge" href="{{ url_for('product.attr.product', id=entry.id) }}">제품 속성</a>
+        {{ entry.name }}
+      </li>
+    {% endfor %}
+  </div>
+{% endblock container %}
+

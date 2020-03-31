@@ -4,7 +4,7 @@ import os
 from urllib.parse import urljoin
 
 ############################# TOCKEN #############################
-SLACK_TOCKEN    = 'xoxb-'
+SLACK_TOCKEN    = 'xoxb-969435419377-981408058743-Dkn2qY7RrjdKeFTlxA9mhN0X'
 
 ##################################################################
 BASE_URL        = "https://registry.my-netdata.io/images/"

@@ -1,0 +1,9 @@
+{% extends 'admin/sidebar.jinja' %}
+
+{% block sidebar %}
+  <ul class="nav nav-sidebar">
+    <li><a href="{{ url_for('admin.update.add') }}">추가 패턴</a></li>
+    <li><a href="{{ url_for('admin.update.del') }}">제거 패턴</a></li>
+    <li><a href="{{ url_for('admin.update.status') }}">패턴 현황</a></li>
+  </ul>
+{% endblock sidebar %}

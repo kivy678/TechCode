@@ -1,0 +1,9 @@
+{% extends 'single.jinja' %}
+
+{% block container %}
+  <div class="jumbotron">
+    <h3>{{ request.args.get('head', '오류') }}</h3>
+    <p>{{ request.args.get('message', '오류 메세지') }}</p>
+    <a class="btn btn-primary" href="{{ request.args.get('next') }}">돌아가기</a>
+  </div>
+{% endblock container %}

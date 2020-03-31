@@ -1,0 +1,20 @@
+{% extends 'single.jinja' %}
+
+{% block container %}
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>키</th>
+        <th>값</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for entry in entries %}
+        <tr>
+          <td>{{ entry.key }}</td>
+          <td>{{ entry.val }}</td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+{% endblock container %}

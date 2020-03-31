@@ -1,8 +1,0 @@
-root:
-  sub_str:       'string'
-  sub_int:        123
-  sub_bool:         True
-  sub_lit:
-    - 'aaa'
-    - 'bbb'
-    - 'ccc'

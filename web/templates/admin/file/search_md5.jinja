@@ -1,0 +1,48 @@
+{% extends 'admin/file/index.jinja' %}
+
+{% block container %}
+  <div class="col-sm-6">
+    <form class="form-horizontal" action="{{ url_for('admin.file.search', mode='md5', step=1) }}" method="get" us-target="hash-form-check">
+      <div class="form-group">
+        <label class="col-sm-2 label-control" for="md5">MD5</label>
+        <div class="col-sm-10">
+          <input id="md5" class="form-control" name="md5" type="text" value="" maxlength="32" us-target="hash-check"/>
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="col-sm-offset-2">
+          <button class="btn btn-primary" type="submit">검색</button>
+        </div>
+      </div>
+    </form>
+  </div>
+  <div>
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>제품명</th>
+          <th>패턴버전</th>
+          <th>패턴상태</th>
+          <th>진단명</th>
+          <th>파일해시</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for entry in entries %}
+          <tr>
+            <td>{{ entry.r_product.name }}</td>
+            <td>{{ '{:,}'.format(entry.pattern) }}</td>
+            <td>{{ PatternCommand(entry.cmd) }}</td>
+            <td>{{ MergeReport(entry.r_file.r_report.r_rs.val, entry.extend) }}</td>
+            <td>
+              <div>MD5 : {{ entry.r_file.file_md5.encode('hex').upper() }}</div>
+              {% if not entry.r_file.file_sha1 is none %}
+                <div>SHA1 : {{ entry.r_file.file_sha1.encode('hex').upper() }}</div>
+              {% endif %}
+            </td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+{% endblock container %}
