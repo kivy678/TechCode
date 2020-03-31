@@ -4,8 +4,7 @@ import os
 from urllib.parse import urljoin
 
 ############################# TOCKEN #############################
-SLACK_TOCKEN    = ''
-CHANNEL         = '#alarms'
+SLACK_TOCKEN    = 'xoxb-'
 
 ##################################################################
 BASE_URL        = "https://registry.my-netdata.io/images/"
@@ -17,3 +16,5 @@ GREEN_IMAGE     = urljoin(BASE_URL, "check-mark-2-128-green.png")
 RED_COLOR       = "#ca414b"
 ORANGE_COLOR    = "#ffc107"
 GREEN_COLOR     = "#77ca6d"
+
+

@@ -5,14 +5,14 @@ import time
 
 import slack
 
-from settings import *
-
-#from Logger import LOG
+from slack_config import *
 
 
 class Slacker:
     def __init__(self, context):
         self.context = context
+
+        self._channel = channel
 
         self._fallback  = {"fallback": context.fallback}
 
@@ -45,11 +45,11 @@ class Slacker:
                 return False
 
     def sendMessage(self, message):
-        response = self._client.chat_postMessage(channel=CHANNEL, text=message)
+        response = self._client.chat_postMessage(channel=context.channel, text=message)
         assert response["ok"]
 
     def sendAlarms(self):
-        response = self._client.chat_postMessage(channel=CHANNEL, attachments=[self.buildAttach()])
+        response = self._client.chat_postMessage(channel=context.channel, attachments=[self.buildAttach()])
         assert response["ok"]
 
     def buildAttach(self):
@@ -76,6 +76,8 @@ class Slacker:
 
     class Builder:
         def __init__(self):
+            self.channel = "#general"
+
             self.fallback   = "중요 알람입니다."
 
             self.pretext    = "헤더라인"
@@ -99,6 +101,10 @@ class Slacker:
                 return self.__dict__[key]
             except KeyError as e:
                 return None
+
+        def setChannel(self, channel):
+            self.channel = channel
+            return self
 
         def setFallback(self, fallback):
             self.fallback = fallback
@@ -145,6 +151,7 @@ class Slacker:
 
 
 a = Slacker.Builder()                                   \
+            .setChannel("#test")                        \
             .setText("큰 문제가 발생하였습니다.")           \
             .build()
 

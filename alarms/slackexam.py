@@ -5,13 +5,7 @@ import os
 import time
 import slack
 
-
-images_base_url2 = "https://registry.my-netdata.io/images/alert-128-red.png"
-color = "#ca414b"
-images_base_url3 = "https://registry.my-netdata.io/images/alert-128-orange.png"
-color = "#ffc107"
-images_base_url4 = "https://registry.my-netdata.io/images/check-mark-2-128-green.png"
-color = "#77ca6d"
+from slack_config import *
 
 attach = [
     {
@@ -43,7 +37,7 @@ attach = [
 ]
 
 client = slack.WebClient(token=SLACK_TOCKEN)
-response = client.chat_postMessage(channel=CHANNEL, attachments=attach)
+response = client.chat_postMessage(channel="#test", attachments=attach)
 
 assert response["ok"]
 
