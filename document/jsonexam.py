@@ -9,8 +9,9 @@ except ImportError:
     import json
 
 
-BASE_DIR = os.path.dirname(os.path.realpath(__file__))
-PATH = os.path.join(BASE_DIR, "example.json")
+#BASE_DIR = os.path.dirname(os.path.realpath(__file__))
+
+PATH = os.path.join('set', "example.json")
 
 string = {
     "int": 1,
