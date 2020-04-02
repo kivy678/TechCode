@@ -1,0 +1,51 @@
+<html>
+	<head>
+		<meta charset="utf-8">
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>  
+
+		<style>
+			.menu a{cursor:pointer;}
+			.menu .hide{display:none;}
+		</style>
+
+		<script>
+			$(document).ready(function(){
+				$(".menu>a").click(function(){
+					var submenu = $(this).next("ul");
+						if( submenu.is(":visible") ){
+							submenu.slideUp();
+						}else{
+							submenu.slideDown();
+						}
+					}).mouseover( function(){
+						$(this).next("ul").slideDown();
+					});
+				});
+		</script>
+		
+	</head>
+
+	<body>
+	<div>
+		<ul>
+			<li class="menu">
+				<a><img src="" alt="상위메뉴이미지1"/></a>
+				<ul class="hide">
+					<li>메뉴1-1</li>
+					<li>메뉴1-2</li>
+					<li>메뉴1-3</li>
+				</ul>
+			</li>
+			
+			<li class="menu"> 
+				<a><img src="" alt="상위메뉴이미지2"/></a>
+				<ul class="hide">
+					<li>메뉴2-1</li>
+					<li>메뉴2-2</li>
+				</ul>
+			</li>
+		</ul>
+	</div>
+
+	</body>
+</html>
