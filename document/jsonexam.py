@@ -1,15 +1,14 @@
 # -*- coding:utf-8 -*-
 
-# pip install simplejson
-
 import os
-try:
-    import simplejson as json
-except ImportError:
-    import json
-
+try: import simplejson as json
+except ImportError: import json
 
 #BASE_DIR = os.path.dirname(os.path.realpath(__file__))
+
+
+
+############################### Json 파서 예제 ###############################
 
 PATH = os.path.join('set', "example.json")
 
@@ -26,6 +25,7 @@ string = {
         }
     ]
 }
+
 
 with open(PATH, 'w') as fw:
     json.dump(string, fw, indent=4, separators=(',', ': '))

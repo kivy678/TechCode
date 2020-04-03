@@ -2,6 +2,7 @@
 
 from bs4 import BeautifulSoup
 
+
 html_doc = """
 <html><head><title>The Dormouse's story</title></head>
 <body>
@@ -18,6 +19,8 @@ and they lived at the bottom of a well.</p>
 
 
 soup = BeautifulSoup(html_doc, "lxml-xml")
+
+############################# BeautifulSoup 기본 ################################
 
 for link in soup.find_all('a'):
     print(link.get('href'))
