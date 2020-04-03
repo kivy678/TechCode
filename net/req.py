@@ -4,19 +4,22 @@
 import requests
 from functools import partial
 
-URL = "https://google.com"
+URL = ""
 
 REQUEST_TIMEOUT = (5 * 60)
 REQUEST_RECV_CHUNK_SIZE = 4096
 
-rep = requests.get(URL)
-print(rep.ok)
+res = requests.get(URL)
+print(res.ok)
 
 ###################### exmaple ###############################
-req = partial(requests.get, API_URL, params={'hash': _hash,}, URL, timeout=REQUEST_TIMEOUT, stream=True, verify=False,)
+res = partial(requests.get, URL, params={'arg': "arg", }, timeout=REQUEST_TIMEOUT, stream=True, verify=False,)
 
-with open(out, 'wb') as fd:
-    for chunk in req.iter_content(REQUEST_RECV_CHUNK_SIZE):
+with open("FILE_PATH", 'wb') as fd:
+    for chunk in res.iter_content(REQUEST_RECV_CHUNK_SIZE):
         fd.write(chunk)
 
 
+fr = open("FILE_PATH", 'rb')
+res = requests.post(URL, data={'arg': "arg", }, files={'file': ("fName", fr.read(), "multipart/form-data")})
+fr.close()

@@ -13,5 +13,5 @@ apscheduler==3.6.1
 pandas==0.25.3
 rx==3.0.1
 joblib==0.14.0
-xlsxwriter==1.2.6
+xlsxwriter==1.2.8
 pyyaml==5.3.1
