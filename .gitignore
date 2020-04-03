@@ -5,7 +5,6 @@ report
 *tmp.py
 __pycache__
 config.py
-slack_config.py
 pid
 lockfile
 web/*
