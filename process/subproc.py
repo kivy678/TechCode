@@ -32,9 +32,14 @@ def subCall2():
     except Exception as e:
         print(e)
 
+def subCall3():
+    proc = subprocess.call(["python", TIME_PATH])
+    print(str(proc.pid))
+
 
 if __name__ == "__main__":
     subCall1()
-    subCall2()
+    #subCall2()
+    #subCall3()
 
     print('Done...')

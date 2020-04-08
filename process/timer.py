@@ -3,8 +3,6 @@
 import os
 import time
 
-print(str(os.getpid()))
-
 while True:
-    print("time...")
+    print("subprocess: {0}".format(os.getpid()))
     time.sleep(2)
