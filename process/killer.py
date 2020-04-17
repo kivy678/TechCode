@@ -13,6 +13,8 @@ cmd = '''tasklist /FI "PID eq 18736" /NH /FO "CSV"'''
 
 def isRunning():
     s = shlex.split(cmd)
+    #s = shlex.shlex(cmd)
+	#s.whitespace_split = True
     proc = subprocess.Popen(s, stdout=subprocess.PIPE, shell=True)
 
     rep = proc.stdout.read().decode().strip()
