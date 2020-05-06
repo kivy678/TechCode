@@ -4,7 +4,7 @@ from idaapi import *
 from idautils import *
 from idc import *
 
-def getOpcode(self):
+def getOpcode(size):
     off_size = 4
 
     for funcea in Functions():
@@ -18,7 +18,7 @@ def getOpcode(self):
             for head in Heads(startea, endea):
                 #print functionName, ":", "0x%08x"%(head), ":", GetDisasm(head)
                 #Log.info('{0} : 0x{1:08x} : {2}'.format(functionName,head,GetManyBytes(head, DecodeInstruction(head)).encode('hex')))
-                opcode_list.append('{0}'.format(GetManyBytes(head, self.size).encode('hex'))) # firstinstrunction
+                opcode_list.append('{0}'.format(GetManyBytes(head, size).encode('hex'))) # firstinstrunction
                 address_list.append('{0:x};'.format(head)) # startaddress;
 
         yield ''.join(opcode_list) + '#' + ''.join(address_list) + '\n'

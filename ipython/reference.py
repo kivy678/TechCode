@@ -6,8 +6,8 @@ from idc import *
 
 from flag import *
 
-def getRef(self):
-    for xref in XrefsTo(self.start_addr, 1):
+def getRef(start_addr):
+    for xref in XrefsTo(start_addr, 1):
         if xref.type == Ordinary_Flow:#or xref.iscode == 0: ida function -> XrefTypeName(xref.type)
             continue
         else:
