@@ -20,6 +20,7 @@ if args is None:
     parser.print_help()
     exit()
 
+print(vars(args))
 print(args.a)
 print(args.b)
 print(args.c)

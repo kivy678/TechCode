@@ -1,9 +1,0 @@
-{% extends 'admin/product/index.jinja' %}
-
-{% block container %}
-  <ul class="list-group">
-    {% for entry in entries %}
-      <a class="list-group-item" href="{{ url_for('admin.product.view', id=entry.id) }}">{{ entry.name }}</a>
-    {% endfor %}
-  </ul>
-{% endblock container %}
