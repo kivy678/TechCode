@@ -1,0 +1,14 @@
+version: '3.0'
+services:
+  my_maria:
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    image: mariadb:1.0
+    restart: always
+    ports:
+      - "5517:3606"
+    environment:
+      - MYSQL_ALLOW_EMPTY_PASSWORD="true"
+    volumes:
+      - /home/kivy/docker/mysql:/var/lib/mysql
