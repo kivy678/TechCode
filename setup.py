@@ -2,24 +2,25 @@ from distutils.core import setup, Extension
 import os
 
 LibPath = os.path.dirname(os.path.realpath(__file__))
+include_dir = os.path.join(LibPath, 'Nib/common')
 
 module = Extension(
-    "[moduleName]",
+    'LibTest',
     define_macros=[("MAJOR_VERSION", "1"), ("MINOR_VERSION", "0")],
-    # include_dirs = [LibPath],
+    include_dirs = [include_dir],
     # library_dirs = [],
     # libraries = [],
-    sources=[".cpp"],
+    sources=['Nlib/libLoader.cpp', 'Nlib/basis.cpp',],
     language="c++",
     extra_compile_args=["-std=c++11", "-w", "-Wall", "-O2"],
 )
 
 setup(
-    name="AndroidTools",
-    version="0.1",
-    description="Android Tool KIT",
+    name="TechCode",
+    version="0.5",
+    description="TechCode",
     author="Kivy",
     author_email="kivy678@gmail.com",
     url="",
-    # ext_modules=[module]
+    ext_modules=[module]
 )
