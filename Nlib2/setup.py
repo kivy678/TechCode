@@ -1,19 +1,22 @@
 from distutils.core import setup, Extension
-import os
+import os, shutil
+
+if os.path.exists("build"):
+    shutil.rmtree("build")
+
 
 LibPath = os.path.dirname(os.path.realpath(__file__))
 include_dir = os.path.join(LibPath, 'Nib/common')
 
 module = Extension(
-    'LibTest',
+    'spam',
     define_macros=[("MAJOR_VERSION", "1"), ("MINOR_VERSION", "0")],
-    include_dirs = [include_dir],
+    #include_dirs = [include_dir],
     # library_dirs = [],
     # libraries = [],
-    #sources=['Nlib/libLoader.cpp', 'Nlib/basis.cpp',],
-    sources=['Nlib2/basis.c', 'Nlib2/basis2.c',],
-    language="c++",
-    extra_compile_args=["-std=c++11", "-w", "-Wall", "-O2"],
+    sources=['basis2.c',],
+    #language="c++",
+    #extra_compile_args=["-std=c++11", "-w", "-Wall", "-O2"],
 )
 
 setup(
