@@ -1,5 +1,6 @@
 #define PY_SSIZE_T_CLEAN
 #include <Python.h>
+#include "common/common.h"
 
 
 static PyObject* SpamException = NULL;
@@ -40,7 +41,7 @@ PyInit_spam(void)
 
 	if(NULL == (m = PyModule_Create(&spammodule)))
 	{
-		//DEPRINT("spam module create");
+		DEPRINT("Spam Module Exception");
 		return NULL;
 	}
 
@@ -49,7 +50,7 @@ PyInit_spam(void)
 													PyExc_Exception,
 													NULL)))
 	{
-		//DEPRINT("NewException");
+		DEPRINT("NewException");
 		return NULL;
 	}
 

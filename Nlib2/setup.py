@@ -11,10 +11,10 @@ include_dir = os.path.join(LibPath, 'Nib/common')
 module = Extension(
     'spam',
     define_macros=[("MAJOR_VERSION", "1"), ("MINOR_VERSION", "0")],
-    #include_dirs = [include_dir],
+    include_dirs = [include_dir],
     # library_dirs = [],
     # libraries = [],
-    sources=['basis2.c',],
+    sources=['basis.c',],
     #language="c++",
     #extra_compile_args=["-std=c++11", "-w", "-Wall", "-O2"],
 )
