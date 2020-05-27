@@ -12,10 +12,14 @@ from tornado.httpserver import HTTPServer
 from tornado.ioloop     import IOLoop
 
 from FruitViwer import FruitViwer
+from CsvViwer import CsvViwer
 
 ##################################################################################################
 
-app = Flask('TEST WEBPAGE')
+app = Flask('TEST WEBPAGE',
+            static_folder = 'static',
+            template_folder = 'templates')
+
 app.config.from_object('security')
 
 ##################################################################################################
@@ -36,6 +40,10 @@ def uploads():
 
 viwer = FruitViwer.as_view('/view', template_name='view.jinja')
 app.add_url_rule('/view', view_func=viwer, methods=['GET'])
+
+viwer2 = CsvViwer.as_view('/csv', template_name='csv.jinja')
+app.add_url_rule('/csv', view_func=viwer2, methods=['GET'])
+
 
 
 @app.route("/")

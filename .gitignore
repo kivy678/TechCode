@@ -8,3 +8,4 @@ config.py
 pid
 lockfile
 .*egg-info
+*.csv

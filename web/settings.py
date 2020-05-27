@@ -5,6 +5,7 @@ import os
 
 #############################################################################
 BASE_DIR 			= os.path.dirname(os.path.realpath(__file__))
+TMP_DIR 			= os.path.join(BASE_DIR, 'tmp')
 LOG_DIR 			= os.path.join(BASE_DIR, 'LOG')
 LOG_PRINT           = True
 
