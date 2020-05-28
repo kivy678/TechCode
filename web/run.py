@@ -12,7 +12,6 @@ from tornado.httpserver import HTTPServer
 from tornado.ioloop     import IOLoop
 
 from FruitViwer import FruitViwer
-from CsvViwer import CsvViwer
 
 ##################################################################################################
 
@@ -41,9 +40,9 @@ def uploads():
 viwer = FruitViwer.as_view('/view', template_name='view.jinja')
 app.add_url_rule('/view', view_func=viwer, methods=['GET'])
 
-viwer2 = CsvViwer.as_view('/csv', template_name='csv.jinja')
-app.add_url_rule('/csv', view_func=viwer2, methods=['GET'])
 
+from blueprint import setup as BaseSetup
+BaseSetup(app)
 
 
 @app.route("/")

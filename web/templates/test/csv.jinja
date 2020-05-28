@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="ko">
+	<head>
+		<meta charset="utf-8"/>
+		<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+		<meta name="viewport" content="width=device-width, initial-scale=1"/>
+		<meta name="author" content="Tester"/>
+
+		<title>TEST WEB PAGE</title>
+
+		<!-- Bootstrap core CSS -->
+		<link href="/static/css/bootstrap.min.css" rel="stylesheet"/>
+	</head>
+	<body>
+		<div class="container" style="width:800px; padding:10px;">
+			<div class="center-block" >
+				<table class="table table-dark table-bordered table-striped table-sm table-hover table-responsive-sm">
+					<thead class="thead-light">
+						<tr>
+							<th>value1</th>
+							<th>value2</th>
+							<th>value3</th>
+							<th>value4</th>
+							<th>value5</th>
+						</tr>
+					</thead>
+
+					<tbody>
+						{% for value in enter %}
+						<tr class="clickable-row">
+							<td>{{ value[0] }}</td>
+							<td>{{ value[1] }}</td>
+							<td>{{ value[2] }}</td>
+							<td>{{ value[3] }}</td>
+							<td>{{ value[4] }}</td>
+						</tr>
+						{% endfor %}
+					</tbody>
+				</table>
+		    </div>
+		</div>
+
+
+		<div id="test" class="container" style="width:800px; padding:10px;"></div>
+
+
+	<script src="/static/js/bootstrap.min.js"></script>
+	<script src="/static/js/jquery.min.js"></script>
+
+	<script>
+		$(document).ready(function($) {
+			$(".clickable-row").click(function() {
+				var tr = $(this);
+        		var td = tr.children();
+
+				$.ajax({
+					url: "{{ url_for('') }}",
+					type: "GET",
+					data: {"data": td.text()},
+
+			        success: function(response) {
+			            console.log("SUCCESS: ");
+			            $("#test").html(response);
+			        },
+			        error: function(error) {
+			            console.log("ERROR: " + error);
+			        }
+
+				});
+			});
+		});
+
+	</script>
+
+
+
+
+	</body>
+</html>
