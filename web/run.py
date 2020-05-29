@@ -47,7 +47,7 @@ BaseSetup(app)
 
 @app.route("/")
 def index():
-    return render_template("index.html")
+    return render_template("index.jinja")
 
 
 def getServer(port):

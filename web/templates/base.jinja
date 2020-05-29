@@ -1,0 +1,42 @@
+<html>
+	<head>
+		<title>TEST</title>
+		<style>
+			div#bg {
+				background-color:yellow;
+				width: 498px;
+				height: 388px;
+				float: left;
+				border: 1px solid red;
+				margin: 30px 30px;
+			  }
+		</style>
+	</head>
+	
+	<body>
+		<div class="container-fluid">
+		<div class="row">
+			<div id="bg">
+				<form action="/view" method="GET">
+					<p>
+						체크하세요. : &nbsp;&nbsp;&nbsp;&nbsp;
+						<input type="radio" name="fruit" value="apple">사과&nbsp;
+						<input type="radio" name="fruit" value="banana" checked>바나나&nbsp;
+					</p>
+					<p>
+						입력하세요. : &nbsp;&nbsp;
+						<input type="text" name="text" value="text" size="11" maxlength="13">
+					</p>
+
+					<input type="submit" value="전송">
+				</form>
+		
+		{% block footer %}
+		{% endblock footer %}
+		
+			</div>
+		</div>
+		</div>
+	</body>
+
+</html>

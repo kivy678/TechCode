@@ -24,6 +24,11 @@ class CsvViwer(MethodView):
                             quoting=csv.QUOTE_ALL)
 
             return render_template(self.template_name, enter=cr)
+   
+    def post(self):
+        if request.method == 'POST':
+            print(request.form['tagName'])
+            print(request.form.getlist('tagName'))
 
 
 csv_view = CsvViwer.as_view('csv', template_name='test/csv.jinja')
