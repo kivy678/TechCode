@@ -46,8 +46,11 @@
 		<div id="test" class="container" style="width:800px; padding:10px;"></div>
 
 
-	<script src="/static/js/bootstrap.min.js"></script>
-	<script src="/static/js/jquery.min.js"></script>
+		<script src="/static/js/jquery.min.js"></script>
+		<script src="/static/js/bootstrap.min.js"></script>
+	
+		<!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+		<script src="/static/js/ie10-viewport-bug-workaround.js"></script>
 
 	<script>
 		$(document).ready(function($) {
@@ -56,7 +59,7 @@
         		var td = tr.children();
 
 				$.ajax({
-					url: "{{ url_for('') }}",
+					url: "{{ url_for('/view') }}",
 					type: "GET",
 					data: {"data": td.text()},
 
