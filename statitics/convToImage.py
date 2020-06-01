@@ -9,7 +9,7 @@ from io import StringIO
 value = StringIO()
 
 
-PATH = r'C:\tmp\vir\3.vir'
+PATH = r'C:\tmp\test.bin'
 WPATH = r'C:\tmp\out.png'
 
 with open(PATH, 'rb') as fr:
@@ -17,24 +17,21 @@ with open(PATH, 'rb') as fr:
         content = fr.read(1)
 
         if not content:
-           break
-    
+        	break
+
         value.write(format(struct.unpack('<B', content)[0], 'b'))
-    
+
 
 sq = np.sqrt(len(value.getvalue()))
 v = int(np.ceil(sq))
 print(v)
 
+
 cmap = {'0': (255,255,255),'1': (0,0,0)}
-
-
 
 data = [cmap[letter] for letter in value.getvalue()]
 img = Image.new('RGB', (v, v), "white")
 img.putdata(data)
 img.save(WPATH, 'PNG')
 
-
 value.close()
-
