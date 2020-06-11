@@ -10,3 +10,4 @@ lockfile
 .*egg-info
 *.csv
 *.png
+build
