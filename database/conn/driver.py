@@ -81,7 +81,7 @@ class MySQL(DriverManager):
             return False
 
 
-    def call(self):
+    def call(self, q, p=None):
         try:
             with self._conn.cursor() as cur:
                 cur.callproc(q, p)

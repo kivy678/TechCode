@@ -1,0 +1,54 @@
+#!/usr/bin/env python
+
+import os
+import re
+
+################################################################################
+
+FILE_MATCHER = re.compile(r'([0-9]+)-([0-9]+)-(.*)\.sql')
+
+################################################################################
+
+def iterateSQL():
+
+    files = sorted([ 
+        os.path.basename(os.path.join(_r, _fn))
+        for _r, _d, _fl in os.walk('.')
+        for _fn in filter(lambda x: x.endswith('.sql'), _fl)
+    ])
+
+    for fp in files:
+
+        match = FILE_MATCHER.match(fp)
+        if not match:
+            continue
+
+        if match.group(2).startswith('10'):
+            continue
+
+        yield fp
+
+    raise StopIteration
+
+
+################################################################################
+
+def main():
+    try:
+        with open('merge.sql', 'w', encoding="utf-8") as writer:
+            for fp in iterateSQL():
+                with open(fp, 'r', encoding="utf-8") as reader:
+                    writer.write('\n')
+                    writer.write('-- -----------------------------------------------------------------------------\n')
+                    writer.write('-- BEGIN {}\n\n'.format(fp))
+                    writer.write(reader.read().strip())
+                    writer.write('\n\n-- END {}\n'.format(fp))
+                    writer.write('-- -----------------------------------------------------------------------------\n\n')
+
+    except Exception as e:
+        print("end")
+
+################################################################################
+
+if __name__ == '__main__':
+    main()

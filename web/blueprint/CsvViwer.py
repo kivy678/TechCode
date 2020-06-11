@@ -32,4 +32,4 @@ class CsvViwer(MethodView):
 
 
 csv_view = CsvViwer.as_view('csv', template_name='test/csv.jinja')
-view.add_url_rule('csv', view_func=csv_view, methods=['GET'])
+view.add_url_rule('csv/<name>/<int:test>', view_func=csv_view, methods=['GET'])

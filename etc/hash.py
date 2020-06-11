@@ -7,11 +7,13 @@ PATH = r'C:\tmp\test'
 
 def getMD5(path):
     with open(path, 'rb') as fr:
-        md5 = hashlib.md5()
-        md5.update(fr.read())
-        print(md5.hexdigest())
+        m = hashlib.md5()
+        for chunk in iter(lambda: fr.read(m.block_size * 128), b''):
+        	m.update(chunk)
+        	
+        print(m.hexdigest())
 
-        return md5.hexdigest()
+        return m.hexdigest()
 
 
 encoded = base64.b64encode(getMD5(PATH).encode())
