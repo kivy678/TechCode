@@ -1,21 +1,15 @@
-numpy==1.18.1
-requests==2.23.0
-slackclient==2.5.0
-lockfile==0.12.2
-python-daemon==2.2.4
-beautifulsoup4==4.8.2
-lxml==4.5.0
-plotly==4.6.0
-chart-studio==1.1.0
-cufflinks==0.17.3
-plotly_express==0.4.1
-apscheduler==3.6.1
-pandas==1.0.1
-rx==3.1.0
-joblib==0.14.0
-xlsxwriter==1.2.8
-pyyaml==5.3.1
-pillow==7.1.1
-xlrd==1.2.0
-matplotlib==3.2.1
-plotly==4.8.1
+### https://pip.pypa.io/en/stable/reference/pip_install/#requirements-file-format ###
+
+-r alarms/requirements.txt
+-r array/requirements.txt
+-r database/requirements.txt
+-r dataframe/requirements.txt
+-r document/requirements.txt
+-r etc/requirements.txt
+-r process/requirements.txt
+-r net/requirements.txt
+-r statitics/requirements.txt
+-r util/requirements.txt
+
+
+

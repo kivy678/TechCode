@@ -20,6 +20,7 @@ app = Flask('TEST WEBPAGE',
             template_folder = 'templates')
 
 app.config.from_object('security')
+app.config['MAX_CONTENT_LENGTH'] = 32 * 1024 * 1024     # 업로드 사이즈
 
 ##################################################################################################
 
