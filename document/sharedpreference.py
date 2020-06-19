@@ -70,7 +70,7 @@ class SharedPreferences:
     def getBoolean(self, key):
         for child in self.root.iter('boolean'):
             if child.get('name') == key:
-                return True if child.text == 'True' else False
+                return True if child.text.lower() == 'true' else False
 
         return False
 
@@ -101,9 +101,9 @@ class SharedPreferences:
 
         def putBoolean(self, key, value):
             if self.hasKey('boolean', key):
-                self.changeElementer('boolean', key, str(value))
+                self.changeElementer('boolean', key, str(value).lower())
             else:
-                self.insertElementer('boolean', key, str(value))
+                self.insertElementer('boolean', key, str(value).lower())
 
 
         def hasKey(self, etype, key):

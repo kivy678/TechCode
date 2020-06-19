@@ -10,6 +10,7 @@ __all__=[
     'RealPath',
     'BaseName',
     'FileSize',
+    'PathSplit',
     'DirCheck',
     'Copy',
     'Delete',
@@ -32,6 +33,7 @@ Relative = os.path.relpath
 RealPath = os.path.realpath
 BaseName = os.path.basename
 FileSize = os.path.getsize
+PathSplit = os.path.split
 
 def DirCheck(dp, created:bool = True, mask:int = 0o755) -> bool:
     if isExist(dp) is True:
