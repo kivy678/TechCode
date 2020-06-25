@@ -57,8 +57,8 @@ def Copy(src, dst) -> bool:
         return CopyFile(src, dst)
 
 def CopyDir(src, dst) -> bool:
-    if DirCheck(dst) is False:
-        raise Exception('Copy destination check failed')
+    if isExist(dst) is True:
+        Delete(dst)
 
     try:
         shutil.copytree(src, dst)

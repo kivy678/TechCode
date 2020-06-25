@@ -66,12 +66,14 @@ class MySQL(DriverManager):
             raise DriverExceptionHander('Can`t connect MySQL')
 
 
-    def query(self, q, p=None):
+    def query(self, q, p=None, commit=True):
         try:
             with self._conn.cursor() as cur:
                 cur.execute(q, p)
                 rows = cur.fetchall()
-                self._conn.commit()
+
+                if commit:
+                    self._conn.commit()
 
                 return rows
 
@@ -113,12 +115,14 @@ class MsSQL(DriverManager):
             raise DriverExceptionHander('Can`t connect MsSQL')
 
 
-    def query(self, q, p=None):
+    def query(self, q, p=None, commit=True):
         try:
             with self._conn.cursor() as cur:
                 cur.execute(q, p)
                 rows = cur.fetchall()
-                self._conn.commit()
+
+                if commit:
+                    self._conn.commit()
 
                 return rows
 

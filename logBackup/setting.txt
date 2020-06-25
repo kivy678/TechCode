@@ -1,4 +1,0 @@
-lcd [Dst path]
-cd [Src path]
-mget pgdump_*.dmp
-bye
