@@ -26,7 +26,7 @@ CSV_EXAMPLE = None
 try:
     csv_file = pd.read_csv("data.csv", sep=',', index_col=0)                    # csv 를 읽어서 데이터 프레임으로 변경
     if csv_file is None:
-        raise DATAFRAME_EXCEPTION_HANDER('Could not load MalwareType.csv.')
+        raise DATAFRAME_EXCEPTION_HANDER('Could not load csv.')
 
     CSV_EXAMPLE = pd.DataFrame(data=csv_file)
     CSV_EXAMPLE = CSV_EXAMPLE.where(pd.notnull(CSV_EXAMPLE), '')
@@ -63,3 +63,5 @@ if __name__ ==  '__main__':
     PANDAS_EXAMPLE.loc[5, 'colume1'] = "ddd"                                    # 단일 컬럼에 데이터 넣기
 
     #PANDAS_EXAMPLE = np.array(PANDAS_EXAMPLE).T[1].tolist()
+
+    PANDAS_EXAMPLE = PANDAS_EXAMPLE[~PANDAS_EXAMPLE.index.duplicated(keep='first')]       # 첫행을 제외한 인덱스 중복 제거
