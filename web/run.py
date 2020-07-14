@@ -21,6 +21,7 @@ app = Flask('TEST WEBPAGE',
 
 app.config.from_object('security')
 app.config['MAX_CONTENT_LENGTH'] = 32 * 1024 * 1024     # 업로드 사이즈
+app.config['SEND_FILE_MAX_AGE_DEFAULT'] = 0             # 브라우저가 정적으로 파일을 캐쉬하는 시간. 기본 12시간
 
 ##################################################################################################
 

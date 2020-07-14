@@ -10,6 +10,4 @@
 -r net/requirements.txt
 -r statitics/requirements.txt
 -r util/requirements.txt
-
-
-
+-r file/requirements.txt

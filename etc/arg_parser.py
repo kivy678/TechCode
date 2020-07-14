@@ -2,10 +2,12 @@
 
 import argparse
 
+__version__ = '0.0.0'
+
 ############################## argparse 예제 ############################################
 
 parser = argparse.ArgumentParser(prog='TEST', description='Hello World')
-parser.add_argument('-v', '--version', action='version', version='%(prog)s 2.0')
+parser.add_argument('-v', '--version', action='version', version='%(prog)s {0}'.format(__version__))
 
 parser.add_argument('-a', '--a', help='경로 입력하세요.', dest='a')
 
