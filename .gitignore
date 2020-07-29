@@ -11,3 +11,4 @@ lockfile
 *.csv
 *.png
 build
+flask_session
