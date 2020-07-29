@@ -1,10 +1,13 @@
 # -*- coding:utf-8 -*-
 
 ##################################################################################################
+
 import os
 
 from flask import Flask, render_template, request
+
 from flask import send_from_directory
+
 from werkzeug.utils import secure_filename
 
 from tornado.wsgi       import WSGIContainer
@@ -22,6 +25,14 @@ app = Flask('TEST WEBPAGE',
 app.config.from_object('security')
 app.config['MAX_CONTENT_LENGTH'] = 32 * 1024 * 1024     # 업로드 사이즈
 app.config['SEND_FILE_MAX_AGE_DEFAULT'] = 0             # 브라우저가 정적으로 파일을 캐쉬하는 시간. 기본 12시간
+
+##################################################################################################
+
+from cache import setup as CacheSetup
+from worker import setup as WorkerSetup
+
+CacheSetup(app)
+WorkerSetup(app)
 
 ##################################################################################################
 
@@ -47,10 +58,15 @@ from blueprint import setup as BaseSetup
 BaseSetup(app)
 
 
+@app.route("/ajax")
+def ajax():
+    return render_template("ajax.jinja")
+
 @app.route("/")
 def index():
     return render_template("index.jinja")
 
+##################################################################################################
 
 def getServer(port):
     server = HTTPServer(WSGIContainer(app))
@@ -60,10 +76,10 @@ def getServer(port):
 
 if __name__ == '__main__':
     # Flask running
-    app.run(host="0.0.0.0", port=5555, debug = True)
+    app.run(host="0.0.0.0", port=7777, debug = True)
     
     # tornadorunning
-    #server = getServer(5555)
+    #server = getServer(7777)
     #server.start()
 
     print("Main done...")

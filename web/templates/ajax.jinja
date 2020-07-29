@@ -1,0 +1,31 @@
+<html>
+<meta charset="UTF-8">
+<body>
+<script src="/static/js/jquery.min.js"></script>
+ 
+  <div id="Context">
+    아작스 예제
+  </div>
+ 
+  <script type="text/javascript">
+ 
+    function ajaxTest(){
+      $.ajax({
+        type : "GET",
+        url : "/",
+        dataType : "text",
+        error : function() {
+          alert('통신실패!!');
+        },
+        success : function(data) {
+          $('#Context').html(data);
+        }
+ 
+      });
+    }
+    ajaxTest();
+ 
+  </script>
+</body>
+ 
+</html>

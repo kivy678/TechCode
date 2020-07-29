@@ -1,9 +1,10 @@
 # -*- coding:utf-8 -*-
 
-SECRET_KEY = "111111111111111111111111"
+import secrets
+SECRET_KEY = secrets.token_urlsafe(16)
 
 CSRF_ENABLED = True # Enable protection CSRF
-CSRF_SESSION_KEY = "111111111111111111111111"
+CSRF_SESSION_KEY = secrets.token_urlsafe(16)
 
 
 """
@@ -17,4 +18,3 @@ THREADS_PER_PAGE = 2
 
 # Upload file max length Limit 64MB
 MAX_CONTENT_LENGTH = 64 * 1024 * 1024
-

@@ -3,6 +3,8 @@
 from flask.views import MethodView
 from flask import render_template, request
 
+from flask import current_app as app
+
 
 class FruitViwer(MethodView):
     template_name = None
