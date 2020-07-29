@@ -1,31 +1,45 @@
-<html>
-<meta charset="UTF-8">
+<!DOCTYPE html>
+<head>
+<meta charset=UTF-8" />
+<meta name="robots" content="noindex,nofollow"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no"/>
+<meta http-equiv="X-UA Compatible" control="IE=edge,chrome=1" />
+<link rel="stylesheet" type="text/css" href="css/table.css" />
+<script type="text/javascript" src="//code.jquery.com/jquery.min.js"></script>
+<!-- 자동 갱신 스크립트 include -->
+<script>
+var timerID;
+
+$(document).ready(function () {
+    $('#execute').on('click',function(e){
+        e.preventDefault();
+        updateData();
+    });
+    $('#stop').on('click',function(e){
+        e.preventDefault();
+        clearTimeout(timerID); // 타이머 중지
+        $('#showtime').html('');
+    });   
+});
+
+function updateData(){
+    $.ajax({
+      url: "/send",
+      type:"GET",
+      cache : false,
+      success: function(data){ // getserver.php 파일에서 echo 결과값이 data 임
+       $('#showtime').html(data);
+      }
+    });
+    timerID = setTimeout("updateData()", 2000); // 2초 단위로 갱신 처리
+}
+</script>
+
+</head>
+
 <body>
-<script src="/static/js/jquery.min.js"></script>
- 
-  <div id="Context">
-    아작스 예제
-  </div>
- 
-  <script type="text/javascript">
- 
-    function ajaxTest(){
-      $.ajax({
-        type : "GET",
-        url : "/",
-        dataType : "text",
-        error : function() {
-          alert('통신실패!!');
-        },
-        success : function(data) {
-          $('#Context').html(data);
-        }
- 
-      });
-    }
-    ajaxTest();
- 
-  </script>
+<p>time : <span id="showtime"></span></p>
+<input type="button" id="execute" value="실행" />
+<input type="button" id="stop" value="중지" />
 </body>
- 
 </html>
