@@ -7,10 +7,11 @@ from tornado.ioloop import IOLoop
 
 import time
 
-class WebSocket(WebSocketHandler):
+
+class MYWebSocket(WebSocketHandler):
     def open(self):
         print("Socket opened.")
-        
+
         for i in range(10):
             self.write_message("Received: " + str(i))
             time.sleep(1)
@@ -18,7 +19,6 @@ class WebSocket(WebSocketHandler):
     def on_message(self, message):
         self.write_message("Received: " + message)
         print("Received message: " + message)
-
 
     def on_close(self):
         print("Socket closed.")
@@ -35,7 +35,7 @@ def index():
 if __name__ == "__main__":
     container = WSGIContainer(app)
     server = Application([
-        (r'/websocket/', WebSocket),
+        (r'/websocket/', MYWebSocket),
         (r'.*', FallbackHandler, dict(fallback=container))
     ])
     server.listen(22111)

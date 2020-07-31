@@ -41,22 +41,32 @@
 					<input type="submit" value="전송">
 				</form>
 		
+			</div>
+		</div>
+		</div>
+
+
 		{% block footer %}
 		{% endblock footer %}
+
+		{% block test %}
+		{% endblock test %}		
 
 		<ul class="nav navbar-nav navbar-right">
 			<li><a href="test/csv">돌아가기</a></li>
 		</ul>
 		
-			</div>
-		</div>
-		</div>
 		
 		<script src="/static/js/jquery.min.js"></script>
 		<script src="/static/js/bootstrap.min.js"></script>
+		<script src="/static/js/popper.min.js"></script>
 	
 		<!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
 		<script src="/static/js/ie10-viewport-bug-workaround.js"></script>
+
+	    {% block script %}
+	    {% endblock script %}
+
 	</body>
 
 </html>
