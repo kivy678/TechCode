@@ -1,0 +1,53 @@
+{% extends 'base.jinja' %}    <!-- base.jinja를 상속 받습니다. -->
+
+{% block container %}
+<div class="row">
+
+	<form action="save" method="POST">
+		<div class="form-group">
+
+			<label id="fm">텍스트 입력 예제</label>
+			<input type="text" class="form-control" name="GetText" placeholder="텍스트를 쓰시오">
+
+			<div class="col-md-4">		<!-- 사이즈를 조절 태그입니다. http://bootstrapk.com/css/ -->
+				<input type="text" class="form-control" size="5" name="GetText" placeholder="텍스트를 쓰시오">
+			</div>
+
+
+
+			<label id="fm">번호 정하기 예제</label>
+			<div class="form-inline">				<!-- 한줄로 출력하는 inline 속성을 줍니다. -->
+			   <input type="number" class="form-control" id="RatioNumber" name="inputNumber_name1" value=22 min="0" max="50"/>inputNumberbox1
+			   <input type="number" class="form-control" id="RatioNumber" name="inputNumber_name2" value=33 min="0" max="50"/>inputNumberbox2
+			</div>
+
+
+
+			<label id="fm">체크 박스 예제</label>
+			<div class="checkbox">
+				<label><input type="checkbox" name=checkbox_name1 value=1>체크박스1</label>
+				<label><input type="checkbox" name=checkbox_name2 value=2>체크박스2</label>
+			</div>
+
+
+			<label id="fm">라디오 예제</label>
+			<div class="radio">
+				<label><input type="radio" name=radio_name1 value=1>radio</label>
+				<label><input type="radio" name=radio_name2 value=2 checked>radio</label>
+			</div>
+
+			<div class="col-sm-offset-2">
+				<button class="btn btn-primary" type="submit">전송</button>
+			</div>
+
+		</div>
+	</form>
+
+</div>
+<div class="row">
+	<ul class="nav navbar-nav navbar-right">
+		<li><a href="/">홈으로 돌아가기</a></li>
+	</ul>
+</div>
+
+{% endblock container %}
