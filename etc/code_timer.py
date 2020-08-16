@@ -3,6 +3,7 @@
 
 import time
 import timeit
+from time import perf_counter as pc
 
 #################################### timeit 예제 ####################################
 
@@ -32,4 +33,11 @@ time.sleep(3)
 end_time = time.time()
 
 secs = end_time - start_time
+print(f'{secs:.3f}')
+
+############################## perf_counter 예제 ########################################
+
+t0 = pc()
+time.sleep(3)
+secs = pc() - t0
 print(f'{secs:.3f}')
