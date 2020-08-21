@@ -18,13 +18,16 @@ class CsvViwer(MethodView):
         self.template_name = template_name
 
     def get(self):
+        print(request.url_rule)
+        print(request.endpoint)
+
         csv_path = os.path.join(TMP_DIR, 'test.csv')
         with open(csv_path, 'r') as fr:
             cr = csv.reader(fr, delimiter=',', quotechar="'",
                             quoting=csv.QUOTE_ALL)
 
             return render_template(self.template_name, enter=cr)
-   
+
     def post(self):
         if request.method == 'POST':
             print(request.form['tagName'])
