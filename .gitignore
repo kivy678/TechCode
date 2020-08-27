@@ -12,3 +12,4 @@ lockfile
 *.png
 build
 flask_session
+build
