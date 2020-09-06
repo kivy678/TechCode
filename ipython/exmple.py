@@ -7,6 +7,8 @@ from idautils import *
 from idaapi import *
 from idc import *
 
+
+
 def stdout_to_file(output_file_name, output_dir=None):
     if not output_dir:
         output_dir = os.path.dirname(os.path.realpath(__file__))
@@ -37,3 +39,5 @@ def main(args):
 if __name__ == "__main__":
     idaapi.autoWait()
     main(sys.argv)
+
+

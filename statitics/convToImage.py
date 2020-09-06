@@ -17,7 +17,7 @@ with open(PATH, 'rb') as fr:
         content = fr.read(1)
 
         if not content:
-        	break
+            break
 
         value.write(format(struct.unpack('<B', content)[0], 'b'))
 
