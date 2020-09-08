@@ -74,9 +74,10 @@ PANDAS_EXAMPLE = PANDAS_EXAMPLE[~PANDAS_EXAMPLE.index.duplicated(keep='first')] 
 PANDAS_EXAMPLE.reset_index(inplace=True, drop=True)     # 인덱스 리셋
 PANDAS_EXAMPLE.index.name = 'id'
 print(PANDAS_EXAMPLE.head())
-
 print(PANDAS_EXAMPLE.last_valid_index())
 
 
-#df.iterrows() < df.itertuples()   #### itertuples 성능이 더 좋다고 한다. iterable 를 사용할 때는 iteruples 를 사용하자
+PANDAS_EXAMPLE = PANDAS_EXAMPLE.groupBy("").pivot("")                       # 선택한 컬럼을 열로 변경한다.
 
+
+#df.iterrows() < df.itertuples()   #### itertuples 성능이 더 좋다고 한다. iterable 를 사용할 때는 iteruples 를 사용하자
