@@ -66,9 +66,8 @@ PANDAS_EXAMPLE.loc[5, 'colume1'] = "ddd"                                    # �
 
 #PANDAS_EXAMPLE = np.array(PANDAS_EXAMPLE).T[1].tolist()
 
-PANDAS_EXAMPLE = PANDAS_EXAMPLE[~PANDAS_EXAMPLE.index.duplicated(keep='first')]       # 첫행을 제외한 인덱스 중복 제거
-
-
+PANDAS_EXAMPLE = PANDAS_EXAMPLE[~PANDAS_EXAMPLE.index.duplicated(keep='first')]       # 첫행을 제외한 인덱스 중복 제거 방법1
+PANDAS_EXAMPLE.index.drop_duplicates(keep='first')                                    # 첫행을 제외한 인덱스 중복 제거 방법2
 
 ######################################## 추가 기능 ########################################
 PANDAS_EXAMPLE.reset_index(inplace=True, drop=True)     # 인덱스 리셋

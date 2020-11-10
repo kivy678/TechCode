@@ -36,7 +36,7 @@ class DriverManager(object):
 
 
     @abstractmethod
-    def query(self, q, p=None):
+    def query(self, q, p=None, commit=True):
         pass
 
 

@@ -1,16 +1,16 @@
 <style>
 	body {
-		font-family: 나눔바른고딕;
+		font-family: Hack;
 		font-size  : 1.2em;	
 	}
 	span {
-		font-family: Hack;
+		font-family: 나눔바른고딕;
 	}
 </style>
 
 # <span>CreateModule</span>
 ---
-
+<body>
 모듈 만들기
 
 ### 모듈들
@@ -20,7 +20,5 @@
 2. chromedriver
 
 	[chromedriver 다운](http://chromedriver.chromium.org/downloads)
-</span>
 
-
-
+</body>

@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+  </head>
+
+  <body>
+
+		홈입니다.
+		{% if current_user.is_authenticated %}
+			<li><a href="{{ url_for('auth.logout') }}">Wecome, {{ current_user.user.name }}</a></li>
+			
+			{% if current_user.is_admin %}
+			관리자입니다.
+			{% endif %}
+
+		{% else %}
+			<a href="/auth/login">로그인</a>
+		{% endif %}
+	</body>
+</html>
