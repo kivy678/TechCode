@@ -2,7 +2,7 @@
 
 import csv
 
-with open(r'set\test.csv', 'w') as fw:
+with open(r'set\test.csv', 'w', encoding='utf-8-sig', newline='') as fw:
     cw = csv.writer(fw, delimiter=',', lineterminator='\n')
     cw.writerow([1, 2, 3])
     cw.writerow(['a', 'b', 'c'])
